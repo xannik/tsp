@@ -3,7 +3,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Main program = new Main(args[0]);
+       new Main(args[0]);
 
     }
 
@@ -14,12 +14,10 @@ public class Main {
     public void run(String filename){
 
         FileHandler fileHandler = new FileHandler();
-        TwoOpt twoOpt = new TwoOpt();
-
-
         List<int[]> cityList = fileHandler.readFile(filename);
-        twoOpt.findPath(cityList);
-
+        TwoOpt twoOpt = new TwoOpt(cityList);
+        List<City> cities = twoOpt.findPath(cityList);
+        fileHandler.writeFile(cities);
 
 
     }
