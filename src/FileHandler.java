@@ -34,20 +34,23 @@ public class FileHandler {
         }
         return cities;
     }
-    public void writeFile(List<City> list){
+    public void writeFile(List<City> city){
         try{
             PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("Output.txt")));
             try{
                 int i = 0;
-                for(City e: list){
+
+                for(City e: city){
                     pw.print(e.getCity());
-                    if(i < list.size()-1) {
+                    if(i < city.size()-1) {
                         pw.print(",");
                     }
                     i++;
                 }
-                City e = list.get(list.size()-1);
+                City e = city.get(city.size()-1);
                 pw.print("," + e.getNextCity());
+
+
             }catch(Exception e){
                 e.printStackTrace();
             }finally {
@@ -58,4 +61,5 @@ public class FileHandler {
         }
 
     }
+
 }
